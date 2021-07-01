@@ -15,7 +15,8 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("vveereshvsh/node-app:${env.BUILD_ID}")
+                   // myapp = docker.build("vveereshvsh/node-app:${env.BUILD_ID}")
+                    sh 'sudo docker build -t vveereshvsh/node-app:${env.BUILD_ID} .'
                 }
             }
         }
