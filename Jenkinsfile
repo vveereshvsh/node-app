@@ -21,6 +21,7 @@ pipeline {
                     sh "sudo docker build -t vveereshvsh/node-app:${env.BUILD_ID} ."
                 }
             } 
+            
            /* steps {
                    dockerCreateRepository credentialsId: dockerRegistryCredentials,
                       repository: 'vveereshvsh/node-app'
@@ -28,8 +29,8 @@ pipeline {
                       credentialsId: dockerRegistryCredentials,
                       image: 'vveereshvsh/node-app',
                       projectModel: packageJSON)
-                  }
-        } */
+                  } */
+        } 
        /* stage("Push image") {
             steps {
                 script {
