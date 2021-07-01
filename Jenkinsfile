@@ -23,10 +23,10 @@ pipeline {
             } */
             steps {
                    dockerCreateRepository credentialsId: dockerRegistryCredentials,
-                      repository: vveereshvsh/node-app
+                      repository: 'vveereshvsh/node-app'
                    dockerBuildAndPush(tags: ["${env.BUILD_ID}"],
-                      credentialsId: dockerhub,
-                      image: vveereshvsh/node-app,
+                      credentialsId: dockerRegistryCredentials,
+                      image: 'vveereshvsh/node-app',
                       projectModel: packageJSON)
                   }
         }
