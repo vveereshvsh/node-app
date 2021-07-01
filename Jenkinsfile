@@ -13,14 +13,23 @@ pipeline {
             }
         }
         stage("Build image") {
-            steps {
+            /*steps {
                 script {
                    // myapp = docker.build("vveereshvsh/node-app:${env.BUILD_ID}")
                     sh "sudo docker build -t vveereshvsh/node-app:${env.BUILD_ID} ."
                 }
-            }
+            } */
+            steps {
+                   dockerCreateRepository credentialsId: dockerhub,
+                      repository: vveereshvsh/node-app
+                   dockerBuildAndPush(tags: ["${env.BUILD_ID}"],
+                      credentialsId: dockerhub,
+                      image: vveereshvsh/node-app,
+                      projectModel: packageJSON)
+                    }
+                }
         }
-        stage("Push image") {
+       /* stage("Push image") {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
@@ -29,7 +38,7 @@ pipeline {
                     }
                 }
             }
-        }        
+        }   */     
         stage('Deploy to GKE') {
             steps{
                 sh "sed -i 's/node-app:latest/node-app:${env.BUILD_ID}/g' deployment.yaml"
