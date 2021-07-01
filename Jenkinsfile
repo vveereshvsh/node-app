@@ -1,3 +1,5 @@
+def dockerRegistryCredentials = 'dockerhub'
+
 pipeline {
     agent any
     environment {
@@ -20,7 +22,7 @@ pipeline {
                 }
             } */
             steps {
-                   dockerCreateRepository credentialsId: dockerhub,
+                   dockerCreateRepository credentialsId: dockerRegistryCredentials,
                       repository: vveereshvsh/node-app
                    dockerBuildAndPush(tags: ["${env.BUILD_ID}"],
                       credentialsId: dockerhub,
