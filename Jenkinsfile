@@ -26,8 +26,7 @@ pipeline {
                       credentialsId: dockerhub,
                       image: vveereshvsh/node-app,
                       projectModel: packageJSON)
-                    }
-                }
+                  }
         }
        /* stage("Push image") {
             steps {
