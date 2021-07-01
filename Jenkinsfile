@@ -15,13 +15,13 @@ pipeline {
             }
         }
         stage("Build image") {
-            /*steps {
+            steps {
                 script {
                    // myapp = docker.build("vveereshvsh/node-app:${env.BUILD_ID}")
                     sh "sudo docker build -t vveereshvsh/node-app:${env.BUILD_ID} ."
                 }
-            } */
-            steps {
+            } 
+           /* steps {
                    dockerCreateRepository credentialsId: dockerRegistryCredentials,
                       repository: 'vveereshvsh/node-app'
                    dockerBuildAndPush(tags: ["${env.BUILD_ID}"],
@@ -29,7 +29,7 @@ pipeline {
                       image: 'vveereshvsh/node-app',
                       projectModel: packageJSON)
                   }
-        }
+        } */
        /* stage("Push image") {
             steps {
                 script {
