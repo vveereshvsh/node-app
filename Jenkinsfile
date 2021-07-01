@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         PROJECT_ID = 'southern-shard-316802'
-        CLUSTER_NAME = 'CLUSTER-NAME'
-        LOCATION = 'CLUSTER-LOCATION'
+        CLUSTER_NAME = 'kubegkecluster'
+        LOCATION = 'us-east1'
         CREDENTIALS_ID = 'gke'
     }
     stages {
