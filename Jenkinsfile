@@ -3,9 +3,9 @@ def dockerRegistryCredentials = 'dockerhub'
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'southern-shard-316802'
-        CLUSTER_NAME = 'kubegkecluster'
-        LOCATION = 'us-east1'
+        PROJECT_ID = 'elated-embassy-313514'
+        CLUSTER_NAME = 'cluster-1'
+        LOCATION = 'us-central1-f'
         CREDENTIALS_ID = 'gke'
     }
     stages {
